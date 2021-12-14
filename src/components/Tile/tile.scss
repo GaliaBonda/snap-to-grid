@@ -1,0 +1,6 @@
+@import '../../style.scss';
+
+.tile {
+    background-color: $tile-background;
+    outline: 1px $border-color solid;
+}

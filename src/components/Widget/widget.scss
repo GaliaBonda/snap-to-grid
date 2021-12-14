@@ -1,0 +1,24 @@
+.widget {
+    padding: 20px;
+    &-main {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+    &-input {
+        padding: 5px;
+        font-size: 20px;
+    }
+    &-label {
+        font-size: 20px;
+    }
+}
+
+.objects-panel {
+    padding: 10px;
+    border: 2px solid black;
+    width: 30vw;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}

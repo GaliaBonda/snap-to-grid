@@ -1,0 +1,7 @@
+@import '../../style.scss';
+
+.grid {
+    outline: 2px solid $border-color;
+    display: flex;
+    flex-wrap: wrap;
+}
