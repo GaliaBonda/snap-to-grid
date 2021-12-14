@@ -18,7 +18,6 @@ export default function DragObject(props: {
   const [shift, setShift] = useState({ shiftX: 0, shiftY: 0 });
   const [isSnapped, setSnapped] = useState(false);
   const grid = document.getElementById('grid');
-  
 
   useEffect(() => {
     if (isDragging) {
@@ -110,7 +109,6 @@ return (
         onDrop={preventDefaultDropping}
       onDragEnter={preventDefaultDropping}
       style={{ width: size.width }} />)}
-      
     </div>
   );
 }

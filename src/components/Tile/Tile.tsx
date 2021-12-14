@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import './tile.scss';
 
 export default function Tile(props: { size: number, id: number }) {
