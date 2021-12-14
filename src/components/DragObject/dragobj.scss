@@ -1,8 +1,10 @@
 @import '../../style.scss';
 
 .object {
-    background-color: $obj-background;
-    outline: 1px solid $border-color;
-    outline-offset: -1px;
+    &-square {
+        background-color: $obj-background;
+        outline: 0.5px solid $border-color;
+        outline-offset: -1px;
+    }
+    
 }
-
