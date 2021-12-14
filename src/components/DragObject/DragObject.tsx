@@ -31,9 +31,9 @@ export default function DragObject(props: {
   });
   
   const draggObject = (e: globalThis.MouseEvent): void => {
-    if (!currentObj) return;
     currentObj.style.position = 'absolute';
     currentObj.style.zIndex = '1000';
+    currentObj.classList.add('current-obj');
     if (grid
       && e.clientX >= grid.getBoundingClientRect().left
       && e.clientY >= grid.getBoundingClientRect().top
@@ -73,6 +73,7 @@ export default function DragObject(props: {
     event.stopPropagation();
     event.preventDefault();
     setDragging(false);
+    currentObj.classList.remove('current-obj');
     if (!currentObj) return;
     currentObj.style.zIndex = '10';
     if (isSnapped) {

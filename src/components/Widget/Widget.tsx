@@ -27,6 +27,7 @@ export default function Widget() {
         };
   });
   const defineTile = (e: globalThis.MouseEvent): void => {
+
     const objects = document.querySelectorAll('.obj-to-hide');
     objects.forEach((obj) => (obj as HTMLElement).style.zIndex = '-1');
     let tile = document.elementFromPoint(e.clientX, e.clientY);
@@ -34,16 +35,18 @@ export default function Widget() {
         setCurrentTile({x: tile.getBoundingClientRect().left, y: tile.getBoundingClientRect().top});
     }
     objects.forEach((obj) => (obj as HTMLElement).style.zIndex = '1');
+    const currentObj = document.querySelector('.current-obj');
+    if (currentObj) (currentObj as HTMLElement).style.zIndex = '1000';
     
   }
 const getGridDimension = (e: ChangeEvent) => {
     const inputValue = Number.parseInt((e.target as HTMLInputElement).value);
     setGridDim(inputValue);
   }
-  const dragObj = objectsSet.map((item) => {
+  const dragObj = objectsSet.map((item, index) => {
         return (
           <DragObject x={currentTile.x} y={currentTile.y} tileSize={gridSize / gridDim}
-            size={{ width: item.width, height: item.height }} type={item.type}/>
+            size={{ width: item.width, height: item.height }} type={item.type} key={index} />
         );
       });
 return (
