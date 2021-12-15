@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import "./style.scss";
+import './style.scss';
 import Widget from './components/Widget/Widget';
 
 const App = () => (
@@ -9,5 +9,5 @@ const App = () => (
 
 ReactDOM.render(
   <App />,
-  document.getElementById("root")
+  document.getElementById('root')
 );

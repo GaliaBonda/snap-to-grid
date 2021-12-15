@@ -14,11 +14,8 @@ const objectsSet = [
 
 export default function Widget() {
   const gridSize = window.innerWidth / 2;
-  const [currentTile, setCurrentTile] = useState({
-    x: 0,
-    y: 0
-  });
   const startDimension = 10;
+  const [currentTile, setCurrentTile] = useState({ x: 0, y: 0 });
   const [gridDim, setGridDim] = useState(startDimension);
   const tileSize = gridSize / gridDim
   const [isDragging, setDragging] = useState(false);
@@ -51,6 +48,7 @@ export default function Widget() {
     objects.forEach((obj) => (obj as HTMLElement).style.zIndex = '1');
     if (currentObj) currentObj.style.zIndex = '100';
   }
+
   const getGridDimension = (e: ChangeEvent) => {
     const inputValue = Number.parseInt((e.target as HTMLInputElement).value);
     setGridDim(inputValue);
@@ -83,6 +81,7 @@ export default function Widget() {
     object.style.left = leftPosition;
     object.style.top = topPosition;
   }
+
   const startDragging = (event: MouseEvent) => {
     event.stopPropagation();
     event.preventDefault();
@@ -103,19 +102,22 @@ export default function Widget() {
     currentObj.style.zIndex = '10';
     if (isSnapped) {
       const leftPosition = (event.clientX >= currentTile.x + tileSize / 2 && event.clientX <= currentTile.x + tileSize) ?
-      currentTile.x + tileSize + 'px' :
-      currentTile.x + 'px';
-    const topPosition = (event.clientY >= currentTile.y + tileSize / 2 && event.clientY <= currentTile.y + tileSize) ?
-      currentTile.y + tileSize + 'px' :
-      currentTile.y + 'px';
-    currentObj.style.left = leftPosition;
-    currentObj.style.top = topPosition;
+        currentTile.x + tileSize + 'px' :
+        currentTile.x + 'px';
+      const topPosition = (event.clientY >= currentTile.y + tileSize / 2 && event.clientY <= currentTile.y + tileSize) ?
+        currentTile.y + tileSize + 'px' :
+        currentTile.y + 'px';
+      currentObj.style.left = leftPosition;
+      currentObj.style.top = topPosition;
     }
+    setSnapped(false);
   };
+
   const preventDefaultDropping = (event: MouseEvent) => {
     event.stopPropagation();
     event.preventDefault();
   };
+
   const dragObj = objectsSet.map((item, index) => {
         return (
           <DragObject size={{ width: item.width, height: item.height }} type={item.type} key={index}
